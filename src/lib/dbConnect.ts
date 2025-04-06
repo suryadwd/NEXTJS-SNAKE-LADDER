@@ -6,7 +6,7 @@ if (!MONGO_URI) throw new Error("Mongo URI is missing");
 
 // multiple connection to the same db is not allowed not happen in mern
 
-let cached = (global as any).mongoose ||= { conn: null, promise: null };
+const cached = (global).mongoose ||= { conn: null, promise: null };
 
 export const dbConnect = async () => {
   try {

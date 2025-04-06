@@ -4,12 +4,12 @@ import { dbConnect } from "@/lib/dbConnect";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
 
-export async function DELETE(req: NextRequest) {
+export async function DELETE() {
     try {
         await dbConnect();
 
         // Get JWT from cookies
-        const token = cookies().get("jwt")?.value;
+        const token = (await cookies()).get("jwt")?.value;
 
         if (!token) {
             return NextResponse.json({ message: "No token provided" }, { status: 401 });
@@ -31,10 +31,12 @@ export async function DELETE(req: NextRequest) {
         }
 
         // Clear the JWT cookie
-        cookies().set("jwt", "", { expires: new Date(0) });
+        (await
+            // Clear the JWT cookie
+            cookies()).set("jwt", "", { expires: new Date(0) });
 
         return NextResponse.json({ success: true, message: "Account deleted successfully" }, { status: 200 });
-    } catch (error: any) {
-        return NextResponse.json({ message: error.message }, { status: 500 });
+    } catch (error: unknown) {
+        return NextResponse.json({ message: error }, { status: 500 });
     }
 }

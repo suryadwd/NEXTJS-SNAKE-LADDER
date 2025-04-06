@@ -9,8 +9,7 @@ import { useRouter } from "next/navigation";
 
 const Navbar = () => {
 
-  const [user, setUser] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const router = useRouter();
 
@@ -75,7 +74,7 @@ const Navbar = () => {
         />
         <div className="font-bold">{user?.username}</div>
 
-        <div className="text-2xl" onClick={e => setDropdownOpen(!dropdownOpen)}><IoIosArrowDropdownCircle className="text-green-500" /></div>
+        <div className="text-2xl" onClick={() => setDropdownOpen(!dropdownOpen)}><IoIosArrowDropdownCircle className="text-green-500" /></div>
 
         {dropdownOpen && (
           <div className="absolute top-12 right-0 bg-white shadow-md rounded-md p-2 w-40 text-black">

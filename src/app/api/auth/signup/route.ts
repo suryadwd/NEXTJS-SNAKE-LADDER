@@ -8,7 +8,6 @@ import User from "@/models/User.model";
 import { dbConnect } from "@/lib/dbConnect";
 
 import { generateTokenAndSetCookies } from "@/lib/auth"; 
-import { em } from "framer-motion/client";
 
 
 //Sign in API
@@ -53,8 +52,8 @@ export async function POST(req: NextRequest) {
 
     return response;
 
-  } catch (error: any) {
-    return NextResponse.json({message: error.message}, {status: 500});
+  } catch (error: unknown) {
+    return NextResponse.json({message: error}, {status: 500});
   }
 
 }

@@ -15,7 +15,10 @@ const Page = () => {
       try {
         const res = await axios.get("/api/user/profile", { withCredentials: true });
         setUser(res.data.user); 
-      } catch (error) {
+        console.log(user)
+        setLoading(false);
+        console.log(loading)
+      } catch (error:unknown) {
         console.error("Error fetching user:", error);
       }
     };

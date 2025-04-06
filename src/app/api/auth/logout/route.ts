@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 // Logout api
 
-export async function GET(req: NextRequest) {
+export async function GET() {
 
   try {
     const response = NextResponse.json({ success: true, message: "User logged out" });
