@@ -5,7 +5,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Board from "@/components/board";
 
-const page = () => {
+const Page = () => {
 
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -36,4 +36,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
