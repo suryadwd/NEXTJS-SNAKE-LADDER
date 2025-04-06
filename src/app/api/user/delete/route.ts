@@ -1,4 +1,4 @@
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse} from "next/server";
 import User from "@/models/User.model";
 import { dbConnect } from "@/lib/dbConnect";
 import jwt from "jsonwebtoken";

@@ -47,7 +47,7 @@ const Page = () => {
     }
   };
 
-  const handelDelete = async (_e: React.MouseEvent<HTMLButtonElement>) => {
+  const handelDelete = async () => {
     setLoadDelete(true);
 
     try {

@@ -58,7 +58,7 @@ export async function PUT(req: NextRequest) {
     try {
         await dbConnect();
        
-        const token = cookies().get("jwt")?.value; // Get JWT from cookies
+        const token = (await cookies()).get("jwt")?.value; // Get JWT from cookies
 
         if (!token) return NextResponse.json({ message: "no token in the update route" }, { status: 401 });
         
